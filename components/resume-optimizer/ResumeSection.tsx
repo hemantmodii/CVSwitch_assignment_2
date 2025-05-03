@@ -48,7 +48,7 @@ export function ResumeSection() {
     isLoading, 
     uploadResume, 
     uploadLoading 
-  } = useResumes(user?.uid);
+  } = useResumes(user?.id);
 
   console.log(resumes, 'resumes')
   
@@ -74,13 +74,17 @@ export function ResumeSection() {
       
       try {
         // Upload the resume
-        const {data: uploadedResume} = await uploadResume(file);
+        const uploadedResume = await uploadResume(file);
+
+        if (!uploadedResume) {
+          setParsingStatus("failed");
+          setCurrentlyParsingResumeId(null);
+          setError("Failed to upload resume. Please try again.");
+          return;
+        }
         
-        // Show parsing status
-        setParsingStatus("parsing");
-        
-        if (uploadedResume && uploadedResume.data && uploadedResume.data.resume_id) {
-          const resumeId = uploadedResume?.data?.resume_id;
+        if (uploadedResume && uploadedResume.id) {
+          const resumeId = uploadedResume?.id;
           setCurrentlyParsingResumeId(resumeId);
           
           // Call parse_uploaded_resume endpoint
@@ -111,7 +115,7 @@ export function ResumeSection() {
   };
 
   const handleAnalyze = async (resume: Resume) => {
-    if (!user?.uid || !resume.jsonUrl) {
+    if (!user?.id || !resume.jsonUrl) {
       setError('Missing required data for analysis');
       return;
     }
@@ -121,7 +125,7 @@ export function ResumeSection() {
     setError(null);
     
     try {
-      const analysis = await resumeService.analyzeResume(user.uid, resume.jsonUrl);
+      const analysis = await resumeService.analyzeResume(user.id, resume.jsonUrl);
       console.log('Analysis response:', analysis); // Debug log
       setCurrentAnalysis(analysis);
     } catch (error) {

@@ -1,6 +1,6 @@
 import { API_CONFIG } from '@/config/api';
 
-interface CoverLetter {
+export interface CoverLetter {
   id: string;
   name: string;
   lastModified: string;
