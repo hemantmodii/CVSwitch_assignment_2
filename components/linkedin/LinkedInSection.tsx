@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Sidebar } from "@/components/Sidebar";
 import { BriefcaseIcon, PencilIcon, CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
@@ -136,7 +136,7 @@ export function LinkedInSection() {
                   This tool helps you optimize your LinkedIn profile by analyzing your current profile and providing suggestions for improvement.
                 </p>
                 <ol className="list-decimal list-inside text-blue-700 space-y-1 mb-3">
-                  <li>Click the "Sign in with LinkedIn" button to authenticate and import your profile data</li>
+                  <li>Click the &#34;Sign in with LinkedIn&#34; button to authenticate and import your profile data</li>
                   <li>Review your imported profile information</li>
                   <li>Check the suggestions provided to improve your profile</li>
                   <li>Edit your profile based on the suggestions</li>

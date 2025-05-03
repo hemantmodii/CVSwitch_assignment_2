@@ -1,25 +1,15 @@
 "use client";
 
-import React, { useState, useRef, useEffect} from 'react';
-import { LinkedInSection } from "@/components/linkedin/LinkedInSection";
+import React, { useState} from 'react';
 import { resumeService } from "@/services/resumeService";
 
 import {
-  DocumentArrowUpIcon,
-  PencilIcon,
+  
   ArrowDownTrayIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { Sidebar } from "@/components/Sidebar";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAuth } from "@/hooks/useAuth";
 import { useResumes } from "@/hooks/useResumes";
 
@@ -29,9 +19,7 @@ export default function LinkedInOptimizerPage() {
   const { 
     resumes, 
     isLoading, 
-    uploadResume, 
-    uploadLoading 
-  } = useResumes(user?.uid);
+  } = useResumes(user?.id);
 
   // State to store the selected resume ID
   const [selectedResumeId, setSelectedResumeId] = useState<string | null>(null);
@@ -46,7 +34,7 @@ export default function LinkedInOptimizerPage() {
     if (selectedResumeId) {
       setLoadingSuggestions(true); // Show loader
       try {
-        const suggestions = await resumeService.getLinkedInSuggestions(user?.uid || '', selectedResumeId);
+        const suggestions = await resumeService.getLinkedInSuggestions(user?.id || '', selectedResumeId);
         setSuggestions(JSON.parse(suggestions.data).About); // Store fetched suggestions
         console.log('LinkedIn suggestions:', suggestions);
       } catch (error) {

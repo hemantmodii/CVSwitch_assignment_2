@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import {
   DocumentArrowUpIcon,
   PencilIcon,
@@ -21,7 +21,7 @@ export function CoverLetterSection() {
     uploadCoverLetter, 
     uploadLoading,
     error 
-  } = useCoverLetters(user?.uid);
+  } = useCoverLetters(user?.id);
   
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 

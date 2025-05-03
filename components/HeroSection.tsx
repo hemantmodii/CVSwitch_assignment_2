@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User } from '@/lib/auth';
 
@@ -18,17 +18,14 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ 
-  user, 
   hasUploadedResume, 
   onUploadResume, 
   pastResumes,
   onOfferingSelect 
 }: HeroSectionProps) {
   const router = useRouter();
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showOfferings, setShowOfferings] = useState(!hasUploadedResume);
+  const [showOfferings] = useState(!hasUploadedResume);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,10 +53,6 @@ export function HeroSection({
         setIsSubmitting(false);
       }
     }
-  };
-
-  const toggleOfferings = () => {
-    setShowOfferings(!showOfferings);
   };
 
   if (showOfferings) {

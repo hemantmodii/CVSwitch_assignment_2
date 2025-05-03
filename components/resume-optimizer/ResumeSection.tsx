@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   DocumentArrowUpIcon,
   PencilIcon,
@@ -52,7 +52,7 @@ export function ResumeSection() {
 
   console.log(resumes, 'resumes')
   
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [showAnalysisModal, setShowAnalysisModal] = useState(false);
   const [activeTab, setActiveTab] = useState<
@@ -74,18 +74,18 @@ export function ResumeSection() {
       
       try {
         // Upload the resume
-        const uploadedResume = await uploadResume(file);
+        const {data: uploadedResume} = await uploadResume(file);
         
         // Show parsing status
         setParsingStatus("parsing");
         
-        if (uploadedResume?.data?.resume_id) {
+        if (uploadedResume && uploadedResume.data && uploadedResume.data.resume_id) {
           const resumeId = uploadedResume?.data?.resume_id;
           setCurrentlyParsingResumeId(resumeId);
           
           // Call parse_uploaded_resume endpoint
           const parseResponse = await axios.get(
-            `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PARSE_UPLOADED_RESUME}?resume_id=${resumeId}&user_id=${user.uid}`
+            `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PARSE_UPLOADED_RESUME}?resume_id=${resumeId}&user_id=${user.id}`
           );
           
           if (parseResponse.status === 200) {
@@ -133,7 +133,7 @@ export function ResumeSection() {
   };
 
   const handleDelete = async (resumeId: string) => {
-    if (!user?.uid) {
+    if (!user?.id) {
       setError('User not authenticated');
       return;
     }
@@ -142,7 +142,7 @@ export function ResumeSection() {
       const response = await axios.post(
         `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.DELETE_RESUME}`,
         {
-          user_id: user.uid,
+          user_id: user.id,
           resume_id: resumeId
         }
       );

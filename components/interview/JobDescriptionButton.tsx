@@ -17,7 +17,7 @@ export function JobDescriptionButton({ onJobDescriptionSubmit, hasJobDescription
     setIsModalOpen(true);
   };
 
-  const handleComplete = (jobDescription: string, resumeFile: File) => {
+  const handleComplete = (jobDescription: string) => {
     console.log("Modal completed");
     onJobDescriptionSubmit(jobDescription);
     setIsModalOpen(false);

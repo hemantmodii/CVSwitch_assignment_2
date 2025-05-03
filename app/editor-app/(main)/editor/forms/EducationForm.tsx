@@ -156,7 +156,6 @@ interface EducationItemProps {
 }
 
 function EducationItem({
-  id,
   form,
   index,
   remove,

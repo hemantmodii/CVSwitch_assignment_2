@@ -1,10 +1,12 @@
 import type { Resume } from '@/types/resume';
-import { pdfParserService } from './pdfParserService';
 import { API_CONFIG } from '@/config/api';
 
 interface UserDataResponse {
   data: {
     uploaded_resume: Array<{
+      resume_url: unknown;
+      file_name: unknown;
+      id: unknown;
       cloud_path: string;
       public_url: string;
       resume_id?: string;
@@ -49,10 +51,10 @@ export const resumeService = {
           });
         }
         
-        return data.data.uploaded_resume.map((resume, index) => {
+        return data.data.uploaded_resume.map((resume) => {
           // Extract filename from cloud_path
           const cloudPath = resume.cloud_path || '';
-          const fileName = cloudPath.split('/').pop() || `Resume ${index + 1}`;
+          
           
           // Check if this resume has a corresponding parsed JSON
           // Extract timestamp from filename (e.g., "1743795375" from "1743795375.008884_Aditya_Yadav_SG-2.pdf")
@@ -60,10 +62,10 @@ export const resumeService = {
           const jsonUrl = parsedJsonMap.get(timestamp) || null;
           
           return {
-            id: resume.id,
-            name: resume.file_name,
+            id: resume.id as string,
+            name: resume.file_name as string,
             lastModified: new Date().toISOString().split('T')[0],
-            url: resume.resume_url,
+            url: resume.resume_url as string,
             cloudPath: resume.cloud_path,
             jsonUrl: jsonUrl,
             // If we have a jsonUrl, the resume has been parsed
@@ -118,7 +120,7 @@ export const resumeService = {
     }
   },
 
-  async getLinkedInSuggestions(userId: string, resumeId: string): Promise<any> {
+  async getLinkedInSuggestions(userId: string, resumeId: string): Promise<unknown> {
     try {
       const response = await fetch(
         `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.LINKEDIN_SUGGESTIONS}?user_id=${userId}&resume_id=${resumeId}`,

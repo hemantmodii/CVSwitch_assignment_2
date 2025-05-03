@@ -22,6 +22,7 @@ export default function LandingPage() {
       router.push('/home');
     } catch (error) {
       setError('Invalid username or password');
+      console.error('Error signing in:', error);
     } finally {
       setLoading(false);
     }

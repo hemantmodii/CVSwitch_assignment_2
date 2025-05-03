@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import { InterviewType } from "@/app/interview/page";
 import ReactMarkdown from 'react-markdown';
 
 interface Message {
@@ -12,13 +11,12 @@ interface Message {
 }
 
 interface Props {
-  interviewType: InterviewType;
   isPracticeMode: boolean;
   onComplete: () => void;
   resumeFile?: File | null;
 }
 
-export function InterviewChat({ interviewType, isPracticeMode, onComplete, resumeFile }: Props) {
+export function InterviewChat({ isPracticeMode, resumeFile }: Props) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
 
@@ -27,12 +25,10 @@ export function InterviewChat({ interviewType, isPracticeMode, onComplete, resum
     const initialMessage: Message = {
       id: Date.now(),
       type: "assistant",
-      content: interviewType === 'resume-based'
-        ? `I've analyzed your resume (${resumeFile?.name}). I'll ask you targeted questions based on your experience. Ready to begin?`
-        : "Welcome to your interview practice session. What would you like to discuss?"
+      content: "Welcome to your interview practice session. What would you like to discuss?"
     };
     setMessages([initialMessage]);
-  }, [interviewType, resumeFile]);
+  }, [resumeFile]);
 
   const handleSend = () => {
     if (!input.trim()) return;

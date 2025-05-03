@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { coverLetterService } from '@/services/coverLetterService';
+import { coverLetterService, CoverLetter } from '@/services/coverLetterService';
 
 export function useCoverLetters(userId: string | undefined) {
   const [coverLetters, setCoverLetters] = useState<CoverLetter[]>([]);

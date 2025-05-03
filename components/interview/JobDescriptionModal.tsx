@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { DocumentTextIcon, ArrowUpTrayIcon, LinkIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon, ArrowUpTrayIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 
 interface Props {
   isOpen: boolean;
@@ -192,7 +192,7 @@ export function JobDescriptionModal({ isOpen, onClose, onComplete }: Props) {
                         Ready to Start
                       </Dialog.Title>
                       <div className="space-y-4 text-gray-600">
-                        <p>We'll now analyze your resume against the job description and prepare relevant interview questions.</p>
+                        <p>We&apos;ll now analyze your resume against the job description and prepare relevant interview questions.</p>
                         <div className="p-4 bg-gray-50 rounded-xl space-y-2">
                           <p className="font-medium text-gray-700">Summary:</p>
                           <p>• Job Description: {jobDescription.slice(0, 100)}...</p>
