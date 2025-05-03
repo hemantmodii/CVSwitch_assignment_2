@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
@@ -5,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, FileText, Mail } from "lucide-react";
 import ResumeEditor, { ResumeEditorRef } from "./ResumeEditor";
 import CoverLetterEditor from "./CoverLetterEditor";
-import ResumePreviewSection from "./ResumePreviewSection";
 import { useEffect, useRef, useState } from "react";
 import { API_CONFIG } from "@/config/api";
 import axios from "axios";
@@ -48,11 +48,11 @@ export default function EditorPage() {
 
   useEffect(() => {
     setIsClient(true);
-    if (resumeId && user?.uid) {
+    if (resumeId && user?.id) {
       setIsLoading(true);
       // Fetch resume data when resumeId is present
       axios.get<ResumeDataResponse>(
-        `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.GET_RESUME_DATA}?user_id=${user.uid}&resume_id=${resumeId}`
+        `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.GET_RESUME_DATA}?user_id=${user.id}&resume_id=${resumeId}`
       )
         .then((response) => {
           if (response.data.data) {
@@ -69,7 +69,7 @@ export default function EditorPage() {
           setIsLoading(false);
         });
     }
-  }, [resumeId, user?.uid]);
+  }, [resumeId, user?.id]);
 
 
 

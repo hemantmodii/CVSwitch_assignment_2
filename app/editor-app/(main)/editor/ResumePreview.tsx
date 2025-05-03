@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import useDimensions from "@/hooks/useDimensions";
 import { cn } from "@/lib/utils";
 import { memo, useMemo, useRef } from "react";
@@ -326,10 +327,12 @@ const AwardsSection = memo(({ awards }: ResumeSectionProps) => {
   return <GenericSection title="Awards" data={awards} />;
 });
 
+// eslint-disable-next-line react/display-name
 const ReferencesSection = memo(({ references }: ResumeSectionProps) => {
   return <GenericSection title="References" data={references} />;
 });
 
+// eslint-disable-next-line react/display-name
 const GenericSection = memo(({ title, data }: GenericSectionProps) => {
   if (!data || !data.description || data.description === "<p></p>") return null;
   const sanitizedHTML = DOMPurify.sanitize(data.description);

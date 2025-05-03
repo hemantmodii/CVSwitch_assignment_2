@@ -37,6 +37,7 @@ export default function CoverLetterPreview({ className, contentRef }: CoverLette
   );
 }
 
+// eslint-disable-next-line react/display-name
 const CoverLetterSection = memo(({ data }: { data: string }) => {
   if (!data || data === "<p></p>") return null;
   const sanitizedHTML = DOMPurify.sanitize(data);

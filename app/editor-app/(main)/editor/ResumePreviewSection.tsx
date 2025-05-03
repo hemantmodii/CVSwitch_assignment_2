@@ -1,10 +1,8 @@
-import { useRef, useState } from "react";
 import ResumePreview from "./ResumePreview";
 import TwoColumnResumePreview from "./TwoColumnResumePreview";
 import TwoColumnColoredResumePreview from "./TwoColumnColoredResumePreview";
 import TemplateDrawer from "./TemplateDrawer";
 import SingleColumnColored from "./SingleColumnColored";
-import { Button } from "react-day-picker";
 
 type TemplateType = "single" | "double" | "colored" | "singleColored";
 
