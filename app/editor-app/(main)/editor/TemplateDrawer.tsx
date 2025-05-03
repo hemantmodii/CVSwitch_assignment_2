@@ -102,9 +102,9 @@ export default function TemplateDrawer({
                     )
                   }
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className={`flex items-center gap-2 mb-2 ${currentTemplate === type ? "text-white dark:text-black" : "text-gray-800 dark:text-white"}`}>
                     {icon}
-                    <h3 className="font-semibold">{title}</h3>
+                    <h3 className={`font-semibold`}>{title}</h3>
                   </div>
                   <p className="text-sm text-gray-600">{description}</p>
                 </div>

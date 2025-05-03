@@ -62,7 +62,7 @@ export default function RichTextEditor({ value, onChange, height="156px" }: Text
   return (
     <div>
       <TextEditorMenuBar editor={editor} />
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor} className="dark:border-2 dark:border-gray-500 rounded-md" />
     </div>
   );
 }

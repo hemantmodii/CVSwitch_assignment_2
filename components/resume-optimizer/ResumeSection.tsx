@@ -172,11 +172,11 @@ export function ResumeSection() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Sidebar />
       <div className="ml-64 p-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold text-slate-800 mb-6">
+          <h1 className="text-2xl font-bold text-slate-800 mb-6 dark:text-white">
             Resume Optimizer
           </h1>
 
@@ -184,7 +184,7 @@ export function ResumeSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
             <div
               onClick={() => fileInputRef.current?.click()}
-              className="flex flex-col items-center justify-center p-6 bg-white rounded-xl border-2 border-dashed border-slate-200 hover:border-indigo-300 transition-colors cursor-pointer"
+              className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-200 rounded-xl border-2 border-dashed border-slate-200 hover:border-indigo-300 transition-colors cursor-pointer hover:dark:bg-slate-300 duration-300 ease-in-out"
             >
               {uploadLoading ? (
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
@@ -205,7 +205,7 @@ export function ResumeSection() {
             </div>
 
             <Link href="/editor-app/editor">
-              <div className="flex flex-col items-center justify-center p-6 bg-white rounded-xl border-2 border-slate-200 hover:border-indigo-300 transition-colors cursor-pointer h-full">
+              <div className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-200 rounded-xl border-2 border-slate-200 hover:border-indigo-300 transition-all cursor-pointer h-full hover:dark:bg-slate-300 duration-300 ease-in-out">
                 <PencilIcon className="w-12 h-12 text-indigo-600 mb-3" />
                 <h3 className="font-semibold text-lg mb-1 text-slate-800">
                   Create from Scratch
@@ -231,7 +231,7 @@ export function ResumeSection() {
           )}
 
           {/* Past Resumes Section */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8 shadow-sm">
+          <div className="bg-white dark:bg-slate-200 rounded-xl border border-slate-200 p-6 mb-8 shadow-sm hover:dark:bg-slate-300 duration-300 ease-in-out">
             <h2 className="text-xl font-semibold mb-4 text-slate-800">Past Resumes</h2>
 
             {isLoading ? (

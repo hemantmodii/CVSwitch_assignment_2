@@ -123,11 +123,11 @@ export function InterviewPrepSection() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       <Sidebar />
       
       <div className="ml-64 flex flex-col h-screen">
-        <div className="p-6 bg-white border-b border-gray-200">
+        <div className="p-6 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-slate-950">
           <h1 className="text-2xl font-bold">Interview Preparation</h1>
           
           {/* User Guide */}
@@ -193,14 +193,14 @@ export function InterviewPrepSection() {
         </div>
         
         {/* Input Area */}
-        <div className="p-4 border-t border-gray-200 bg-white">
+        <div className="p-4 border-t border-gray-200 bg-white dark:bg-slate-950 dark:border-gray-700">
           <div className="flex items-center">
             <textarea
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Type your message here..."
-              className="flex-1 border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+              className="flex-1 border-gray-300 dark:bg-black dark:border-gray-600 border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
               rows={1}
             />
             <button
@@ -208,7 +208,7 @@ export function InterviewPrepSection() {
               disabled={!inputMessage.trim() || isLoading}
               className={`ml-2 p-2 rounded-full ${
                 !inputMessage.trim() || isLoading
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed dark:bg-gray-700'
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}
             >

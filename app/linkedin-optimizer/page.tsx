@@ -61,10 +61,11 @@ export default function LinkedInOptimizerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Sidebar />
-      <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8 shadow-sm max-w-5xl mx-auto">
-        <h2 className="text-xl font-semibold mb-4 text-slate-800">Select a resume</h2>
+    <div className='flex flex-col'>
+    <Sidebar />
+    <div className=" bg-slate-50 dark:bg-slate-950">
+      <div className="bg-background dark:bg-slate-200 hover:dark:bg-slate-300 transition-colors duration-300 ease-in-out rounded-xl border border-slate-200 dark:border-slate-800 p-6 mb-8 shadow-sm max-w-5xl mx-auto my-8 ">
+        <h2 className="text-xl font-semibold mb-4 text-foreground dark:text-slate-700">Select a resume</h2>
 
         {isLoading ? (
           <div className="text-center py-8">
@@ -135,7 +136,7 @@ export default function LinkedInOptimizerPage() {
         <Button
           variant="default"
           size="lg"
-          className="bg-indigo-600 text-white hover:bg-indigo-700"
+          className="bg-indigo-700 hover:text-white hover:bg-indigo-600 text-gray-200"
           onClick={handleGetLinkedInSuggestions}
         >
           Get LinkedIn Suggestions
@@ -143,7 +144,7 @@ export default function LinkedInOptimizerPage() {
       </div>
 
       {/* Suggestions or Key Points */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm max-w-6xl mx-auto">
+      <div className="dark:bg-slate-300 rounded-xl border border-slate-200  dark:border-slate-800 p-6 shadow-sm max-w-6xl mx-auto mb-8">
         {loadingSuggestions ? (
           <div className="text-center py-8">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto mb-4"></div>
@@ -156,7 +157,7 @@ export default function LinkedInOptimizerPage() {
 
             {/* Additional Suggestions */}
             <h3 className="text-lg font-semibold mb-4 text-slate-800">Additional Suggestions</h3>
-            <ul className="list-disc list-inside text-slate-700 space-y-2">
+            <ul className="list-disc list-inside text-slate-300 dark:text-slate-700 dark:bg-slate-300 space-y-2">
               <li>Use a professional photo – High-quality headshot with a clean background.</li>
               <li>
                 Write a strong headline – Go beyond just your job title. Show your value (e.g., 
@@ -175,9 +176,9 @@ export default function LinkedInOptimizerPage() {
             </ul>
           </div>
         ) : (
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-slate-800">Key Points</h3>
-            <ul className="list-disc list-inside text-slate-700 space-y-2">
+          <div className=''>
+            <h3 className="text-lg font-semibold mb-4 text-slate-800 dark:text-slate-700">Key Points</h3>
+            <ul className="list-disc list-inside text-slate-700 dark:text-slate-700 space-y-2">
               <li>Optimize your LinkedIn profile for better visibility.</li>
               <li>Highlight your key skills and achievements.</li>
               <li>Ensure your profile photo is professional.</li>
@@ -194,6 +195,7 @@ export default function LinkedInOptimizerPage() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

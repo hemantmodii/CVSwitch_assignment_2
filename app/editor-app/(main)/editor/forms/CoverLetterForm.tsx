@@ -49,7 +49,7 @@ export default function CoverLetterForm() {
   }, [watchedDescription]);
 
   return (
-    <Card className="max-w-2xl mx-auto mt-10 shadow-md">
+    <Card className="max-w-2xl mx-auto mt-10 shadow-md dark:bg-accent">
       <CardHeader
         className="cursor-pointer select-none"
         onClick={() => setIsOpen(!isOpen)}
@@ -68,7 +68,7 @@ export default function CoverLetterForm() {
 
       <div
         className={`transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-[1000px] opacity-100 py-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[1000px] opacity-100 py-4 border-slate-50" : "max-h-0 opacity-0"
         }`}
       >
         <CardContent>

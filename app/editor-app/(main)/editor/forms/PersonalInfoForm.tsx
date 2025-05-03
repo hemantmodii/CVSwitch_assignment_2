@@ -56,7 +56,7 @@ export default function PersonalInfoForm() {
   }, [watchedValues, setResumeData]);
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-md">
+    <Card className="max-w-2xl mx-auto shadow-md dark:bg-accent">
       <CardHeader
         className="cursor-pointer select-none"
         onClick={() => setIsOpen(!isOpen)}
@@ -89,7 +89,7 @@ export default function PersonalInfoForm() {
                     <FormItem>
                       <FormLabel>First Name</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field}/>
                       </FormControl>
                     </FormItem>
                   )}

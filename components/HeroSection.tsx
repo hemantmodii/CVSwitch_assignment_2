@@ -64,8 +64,8 @@ export function HeroSection({
 
   if (showOfferings) {
     return (
-      <div className="bg-white rounded-xl p-8 mb-6 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">What would you start with?</h2>
+      <div className="bg-white rounded-xl p-8 mb-6 max-w-4xl mx-auto dark:bg-gradient-to-bl dark:from-blue-950 dark:to-green-900">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">What would you start with?</h2>
         <p className="text-gray-500 mb-8">Select an option to begin optimizing your career assets</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -75,17 +75,17 @@ export function HeroSection({
               onClick={() => handleCardClick(option.id)}
               onMouseEnter={() => setHoveredCard(option.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`relative p-6 rounded-xl border border-gray-200 transition-all cursor-pointer overflow-hidden
+              className={`relative p-6 rounded-xl border border-gray-200 transition-all cursor-pointer overflow-hidden dark:bg-white
                 ${isSubmitting ? 'opacity-70 pointer-events-none' : ''}
                 ${hoveredCard === option.id ? 'shadow-lg border-transparent' : 'hover:shadow-md'}
               `}
             >
               {/* Gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300
-                ${option.id === 'resume' ? 'from-blue-50 to-purple-50' : ''}
-                ${option.id === 'linkedin' ? 'from-sky-50 to-blue-50' : ''}
-                ${option.id === 'cover-letter' ? 'from-emerald-50 to-teal-50' : ''}
-                ${option.id === 'interview' ? 'from-amber-50 to-orange-50' : ''}
+                ${option.id === 'resume' ? 'from-blue-50 to-purple-50 dark:from-blue-400 dark:to-purple-400' : ''}
+                ${option.id === 'linkedin' ? 'from-sky-50 to-blue-50 dark:from-sky-400 dark:to-blue-400' : ''}
+                ${option.id === 'cover-letter' ? 'from-emerald-50 to-teal-50 dark:from-emerald-400 dark:to-teal-400' : ''}
+                ${option.id === 'interview' ? 'from-amber-50 to-orange-50 dark:from-amber-400 dark:to-orange-400' : ''}
                 ${hoveredCard === option.id ? 'opacity-100' : 'opacity-0'}
               `}></div>
               

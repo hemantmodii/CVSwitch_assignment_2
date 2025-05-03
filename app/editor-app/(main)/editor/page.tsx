@@ -251,7 +251,7 @@ export default function EditorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-background">
       {validationMessage && (
         <div
           className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-center py-2 px-4 rounded shadow-md transition-opacity duration-500 z-50"
@@ -266,13 +266,13 @@ export default function EditorPage() {
           variant="ghost" 
           size="sm" 
           onClick={() => router.back()}
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 dark:bg-accent"
         >
           <ArrowLeft className="h-4 w-4" />
           Back
         </Button>
         
-        <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-lg p-1 shadow-sm">
+        <div className="flex items-center gap-2 dark:bg-accent backdrop-blur-sm rounded-lg p-1 shadow-sm">
           <Button
             variant={mode === 'resume' ? 'default' : 'ghost'}
             size="sm"
@@ -293,7 +293,7 @@ export default function EditorPage() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-lg p-1 shadow-sm ml-8">
+        <div className="flex items-center gap-2 dark:bg-accent backdrop-blur-sm rounded-lg p-1 shadow-sm ml-8">
           <Button
             variant="ghost"
             size="sm"

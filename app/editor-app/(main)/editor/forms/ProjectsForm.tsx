@@ -77,7 +77,7 @@ export default function ProjectsForm() {
   });
 
   return (
-    <Card className="max-w-2xl mx-auto mt-10 shadow-md">
+    <Card className="max-w-2xl mx-auto mt-10 shadow-md dark:bg-accent">
       <CardHeader
         className="cursor-pointer select-none"
         onClick={() => setIsOpen(!isOpen)}

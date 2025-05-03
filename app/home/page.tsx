@@ -47,12 +47,12 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-slate-950">
       <Sidebar />
       
       <main className="flex-1 ml-64 p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
             Welcome back, <span className="text-blue-600">{user?.username || 'User'}</span>! 👋
           </h1>
         </div>
