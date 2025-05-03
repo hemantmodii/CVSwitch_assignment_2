@@ -7,7 +7,7 @@ import { auth } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  const [user, setUser] = useState(auth.getCurrentUser());
+  const [user,] = useState(auth.getCurrentUser());
   const [hasUploadedResume, setHasUploadedResume] = useState(false);
   const [pastResumes, setPastResumes] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);

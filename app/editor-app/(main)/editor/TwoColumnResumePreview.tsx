@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import useDimensions from "@/hooks/useDimensions";
 import { cn } from "@/lib/utils";
 import { memo, useMemo, useRef } from "react";

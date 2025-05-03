@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { memo, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useResume } from "./forms/ResumeProvider";
